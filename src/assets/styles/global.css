@@ -1,0 +1,343 @@
+/* -------- GLOBAL STYLES -------- */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", sans-serif;
+  background-color: #E9F1FA; 
+  color: #333;
+}
+
+h1, h2, h3, h4 {
+  color: #003348; 
+  margin-bottom: 10px;
+}
+
+/* -------- LOGIN AND REGISTER STYLES -------- */
+
+.divLogin,
+.divRegister,
+.divUserEdit {
+  max-width: 400px;
+  margin: 60px auto;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: #FFFFFF;
+  box-shadow: 0 0 12px rgba(0, 171, 228, 0.3); 
+  border: 1px solid #00ABE4;
+}
+
+.LoginTitle,
+.RegisterTitle,
+.titleUserEdit {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #00ABE4;
+}
+
+.errorMessage {
+  color: red;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.successMessage {
+  background-color: #d0f0fd; 
+  color: #007a9c;
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  border: 1px solid #00ABE4;
+  text-align: center;
+  font-weight: 500;
+}
+
+.loginForm,
+.registerForm,
+.userEditForm {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.placeholderUser,
+.placeholderPassword,
+.placeholderName {
+  padding: 12px;
+  border-radius: 5px;
+  border: 1px solid #c6e7f2;
+  font-size: 16px;
+  background-color: #f7fcfe;
+}
+
+.submitButton {
+  padding: 12px;
+  font-size: 16px;
+  background-color: #00ABE4;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s ease;
+}
+
+.submitButton:hover {
+  background-color: #008bb9;
+}
+
+/* -------- FOOTER STYLES -------- */
+
+footer {
+  background-color: #00ABE4;
+  color: #FFFFFF;
+  padding: 20px 10px;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.NombresFooter {
+  font-size: 18px;
+  margin: 0;
+  font-weight: 500;
+  color: #FFFFFF;
+}
+
+.AnioFooter {
+  font-size: 14px;
+  margin-top: 8px;
+  color: #ffffffb0;
+}
+
+/* -------- NAV BAR STYLES -------- */
+
+
+nav {
+  background-color: #00ABE4; 
+  padding: 12px 24px;
+  display: flex;
+  justify-content: flex-end; 
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 2px 5px rgba(0, 171, 228, 0.5);
+  font-family: "Segoe UI", sans-serif;
+}
+
+nav a,
+nav button {
+  color: #ffffff; 
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+nav a:hover,
+nav button:hover {
+  background-color: #E9F1FA; 
+  color: #00ABE4; 
+}
+
+nav span {
+  color: #FFFFFF;
+  font-weight: 600;
+  margin-right: auto; 
+  font-size: 16px;
+}
+
+/* -------- STAT PAGE STYLES -------- */
+
+.statPage {
+  padding: 2rem;
+}
+.statPage ul {
+  list-style: none;
+  padding: 0;
+}
+.statPage li {
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid #ccc;
+}
+.mejorJugador {
+  background-color: #d4edda;
+  font-weight: bold;
+  border-left: 5px solid green;
+}
+.paginacion button {
+  margin: 0 5px;
+  padding: 0.3rem 0.6rem;
+}
+.paginacion .activo {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+
+
+/* -------- MAZOS PAGE STYLES -------- */
+
+.divMazos {
+  padding: 2rem;
+  max-width: 800px;
+  margin: auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.lista-de-mazos {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f3f3f3;
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+}
+
+.mazo-nombre {
+  flex: 1;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.acciones-mazo {
+  display: flex;
+  gap: 10px;
+}
+
+.botonEliminar, .botonVerMazo, .botonEditarMazo, .boton-cancelar, .boton-guardar, .botonJugar{
+  margin-left: 10px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.botonEliminar {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.botonEliminar:hover {
+  background-color: #c0392b;
+}
+
+.botonVerMazo,
+.botonEditarMazo{
+  background-color: #3498db;
+  color: white;
+}
+
+.botonVerMazo:hover,
+.botonEditarMazo:hover{
+  background-color: #2980b9;
+}
+
+.botonJugar {
+  text-decoration: none;
+}
+
+.input-editar-mazo {
+  padding: 4px 8px;
+  margin-right: 6px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.boton-guardar {
+  background-color: #4caf50;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.boton-guardar:hover {
+  background-color: #45a049;
+}
+
+.boton-cancelar {
+  background-color: #e74c3c;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.boton-cancelar:hover {
+  background-color: #c0392b;
+}
+
+
+.botonJugar {
+  background-color: #3498db;
+  color: white;
+  text-decoration: none;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  display: inline-block;
+  text-align: center;
+  line-height: normal;
+}
+
+.botonJugar:hover {
+  background-color: #2980b9;
+}
+
+/* Modal */
+.modalCartas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-contenido {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  text-align: center;
+}
+
+.modal-contenido ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+.modal-contenido li {
+  padding: 0.5rem;
+  border-bottom: 1px solid #eee;
+}
+
+.modal-contenido button {
+  margin-top: 1rem;
+  padding: 10px 20px;
+  background-color: #95a5a6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.modal-contenido button:hover {
+  background-color: #7f8c8d;
+}
+

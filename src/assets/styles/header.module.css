@@ -1,0 +1,44 @@
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  background-color: #00ABE4;
+  flex-wrap: wrap;
+}
+
+.linkHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.logoHeader {
+  height: 50px;
+  border-radius:50px;
+  object-fit: cover;
+  width: auto;
+}
+
+.headerTitle {
+  font-size: 2rem;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .header {
+    justify-content: center;
+  }
+
+  .headerTitle {
+    font-size: 1.5rem;
+  }
+
+  .logoHeader {
+    height: 40px;
+  }
+}
