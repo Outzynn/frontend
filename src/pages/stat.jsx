@@ -36,7 +36,6 @@ export default function Stats() {
 
   const mejorJugador = estadisticasOrdenadas[0];
 
-  // Paginación
   const totalPaginas = Math.ceil(estadisticas.length / resultadosPorPagina);
   const inicio = (paginaActual - 1) * resultadosPorPagina;
   const paginados = estadisticasOrdenadas.slice(inicio, inicio + resultadosPorPagina);
@@ -48,26 +47,32 @@ export default function Stats() {
         Ordenar por {orden === "desc" ? "peor" : "mejor"} performance
       </button>
 
-      <ul>
-        {paginados.map((user, i) => (
-          <li key={i} className={user === mejorJugador ? "mejorJugador" : ""}>
-            <strong>{user.nombre}</strong> - Partidas: {user.total} | Ganadas: {user.partidas_ganadas} | Perdidas: {user.partidas_perdidas} | Empatadas: {user.partidas_empatadas} | Promedio: {user.promedio}
-          </li>
-        ))}
-      </ul>
+      {paginados.length<1? (
+        <p className="errorMessage">No hay partidas que mostrar.</p>
+      ):(
+        <>
+        <ul>
+          {paginados.map((user, i) => (
+            <li key={i} className={user === mejorJugador ? "mejorJugador" : ""}>
+              <strong>{user.nombre}</strong> - Partidas: {user.total} | Ganadas: {user.partidas_ganadas} | Perdidas: {user.partidas_perdidas} | Empatadas: {user.partidas_empatadas} | Promedio: {user.promedio}
+              
+            </li>
+          ))}
+        </ul>
 
-      {/* Paginación */}
-      <div className="paginacion">
-        {Array.from({ length: totalPaginas }, (_, i) => (
-          <button
-            key={i}
-            onClick={() => setPaginaActual(i + 1)}
-            className={paginaActual === i + 1 ? "activo" : ""}
-          >
-            {i + 1}
-          </button>
-        ))}
-      </div>
+        <div className="paginacion">
+          {Array.from({ length: totalPaginas }, (_, i) => (
+            <button
+              key={i}
+              onClick={() => setPaginaActual(i + 1)}
+              className={paginaActual === i + 1 ? "activo" : ""}
+            >
+              {i + 1}
+            </button>
+          ))}
+        </div>
+        </>
+      )}
     </div>
   );
 }
