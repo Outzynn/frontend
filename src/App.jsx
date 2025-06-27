@@ -6,13 +6,14 @@ import NavBarComponent from './components/NavBarComponent/NavBarComponent';
 
 function App() {
   return (
-    <>
-      <HeaderComponent/>
-      <NavBarComponent/>
-      <AppRoutes />
-      <FooterComponent/>
-      
-    </>
+    <div className="app-container">
+      <HeaderComponent />
+      <NavBarComponent />
+      <main className="contenido">
+        <AppRoutes />
+      </main>
+      <FooterComponent />
+    </div>
   );
 }
 
