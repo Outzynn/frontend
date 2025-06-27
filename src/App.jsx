@@ -7,11 +7,16 @@ import NavBarComponent from './components/NavBarComponent/NavBarComponent';
 function App() {
   return (
     <div className="app-container">
+
+      <div className='encabezado'>
       <HeaderComponent />
       <NavBarComponent />
+      </div>
+
       <main className="contenido">
         <AppRoutes />
       </main>
+      
       <FooterComponent />
     </div>
   );
