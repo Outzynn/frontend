@@ -1,44 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Fontdiner+Swanky&family=Rubik+Puddles&display=swap');
 
 .header {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem 2rem;
-  background-color: #00ABE4;
+  padding: 0.4rem 1rem;     /* 🔽 mucho menos padding */
+  background-color: rgba(0, 0, 0, 0.555);
   flex-wrap: wrap;
+}
+
+.headerTitle {
+  font-family: "Rubik Puddles", system-ui;
+  font-size: 2rem;        /* 🔽 antes 2.5rem */
+  font-weight: bold;
+  white-space: nowrap;
+  color: azure;
 }
 
 .linkHeader {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.5rem;              /* 🔽 menos espacio entre íconos y texto */
   text-decoration: none;
   color: inherit;
 }
 
-.logoHeader {
-  height: 50px;
-  border-radius:50px;
-  object-fit: cover;
-  width: auto;
-}
 
-.headerTitle {
-  font-size: 2rem;
-  font-weight: bold;
-  white-space: nowrap;
-}
-
-@media (max-width: 600px) {
+@media (max-width: 500px) {
   .header {
     justify-content: center;
   }
 
   .headerTitle {
     font-size: 1.5rem;
-  }
-
-  .logoHeader {
-    height: 40px;
   }
 }
