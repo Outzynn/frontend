@@ -5,6 +5,7 @@ import EditUser from '../pages/EditUser';
 import Stats from '../pages/stat';
 import Mazos from '../pages/Mazos';
 import Jugar from '../pages/Jugar';
+import AltaMazo from '../pages/CreateMazo';
 
 function AppRoutes() {
   return (
@@ -14,7 +15,9 @@ function AppRoutes() {
         <Route path="/registro" element={<Register/>} />
         <Route path="/editar-perfil" element={<EditUser/>} />
         <Route path="/mis-mazos" element={<Mazos/>}/>
+        <Route path="/crear-mazo" element={<AltaMazo/>} />
         <Route path="/jugar/:id" element={<Jugar/>}/>
+    
       </Routes>
   );
 }
