@@ -32,18 +32,6 @@ export default function Mazos(){
         }
     }, [usuario]);
 
-    useEffect(() => {
-        if (success || error) {
-          const timer = setTimeout(() => {
-            setSuccess("");
-            setError("");
-          }, 2000);
-
-          return () => clearTimeout(timer);
-        }
-    }, [success, error]);
-
-
     const handleEliminar = async(mazoId) =>  {
         try{
             await deleteMazo(mazoId);
