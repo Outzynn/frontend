@@ -46,7 +46,7 @@ export default function Register(){
     try{
       const response = await userService.register(nombre, usuario, password);
       setSuccess(response.mensaje);
-      setTimeout(() => navigate("/login"), 2000);
+      setTimeout(() => navigate("/inicio-de-sesion"), 2000);
 
     }catch (err) {
     if (err.response) {
