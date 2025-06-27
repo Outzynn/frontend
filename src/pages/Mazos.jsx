@@ -5,6 +5,7 @@ import { deleteMazo } from "../services/mazosService";
 import { getCartasDelMazo } from "../services/mazosService";
 import { editDeck } from "../services/mazosService";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Mazos(){
     const {usuario} = useContext(AuthContext);
@@ -17,6 +18,8 @@ export default function Mazos(){
 
     const [nuevoNombre, setNuevoNombre] = useState("");
     const [mazoEditando, setMazoEditando] = useState(null);
+
+    const navigate = useNavigate();
 
     useEffect(() =>{
         const fetchData = async () => {
@@ -82,8 +85,17 @@ export default function Mazos(){
       </div>
     ) : (
       <div className="divMazos">
+        
         <h1>Mazos disponibles.</h1>
 
+        <button 
+          onClick={() => navigate('/crear-mazo')}
+          className="alta-mazo" 
+          disabled={mazos.length>=3}>
+            Alta Nuevo Mazo
+        </button>
+
+        
         {error && <p className="errorMessage">{error}</p>}
         {success && <p className="successMessage"> {success}</p>}
 
@@ -142,12 +154,18 @@ export default function Mazos(){
         {mostrarModal && (
           <div className="modalCartas">
             <div className="modal-contenido">
-              <h2>Cartas del Mazo</h2>
+              <h2 className="title-modal">Cartas del Mazo</h2>
               <ul>
                 {cartas.map((carta, idx) => (
                   <li key={idx}>
-                    {carta.nombre} - Ataque: {carta.ataque} {carta.ataque_nombre} (
-                    {carta.atributo_nombre})
+                    <img src={`/cartas/${carta.id}.png`} alt="Carta" className="imagen-carta"/>
+                    <p className="carta-info">
+                    <strong>{carta.nombre} 
+                    <br></br> Ataque: {carta.ataque} 
+                    <br></br>{carta.ataque_nombre} 
+                    <br></br>({carta.atributo_nombre})
+                    </strong>
+                    </p>
                   </li>
                 ))}
               </ul>
