@@ -8,19 +8,26 @@ export default function Navbar() {
 
   return (
     <nav>
-      {usuario ? (
-        <>
-          <span>Hola, {usuario.nombre}</span>
-          <Link to="/mis-mazos">Mis mazos</Link>
-          <Link to="/editar-perfil">Editar usuario</Link>
-          <LogoutButton/>
-        </>
-      ) : (
-        <>
-          <Link to="/registro">Registro de usuario</Link>
-          <Link to="/inicio-de-sesion">Login</Link>
-        </>
+      {usuario && (
+        <div className="nav-saludo">
+          Hola, {usuario.nombre}
+        </div>
       )}
+
+      <div className="nav-links">
+        {usuario ? (
+          <>
+            <Link to="/mis-mazos">Mis mazos</Link>
+            <Link to="/editar-perfil">Editar usuario</Link>
+            <LogoutButton />
+          </>
+        ) : (
+          <>
+            <Link to="/registro">Registro de usuario</Link>
+            <Link to="/inicio-de-sesion">Login</Link>
+          </>
+        )}
+      </div>
     </nav>
   );
 }
