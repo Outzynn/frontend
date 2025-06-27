@@ -19,3 +19,19 @@ export const editDeck = async(mazoId, nombre) => {
     const response = await api.put(`/mazos/${mazoId}`, {nombre});
     return response;
 }
+
+export const enlistarCartas = async(filtroAtributo,filtroNombre) => {
+    
+    const response = api.get("/cartas", {
+                params: {
+                nombre: filtroNombre,
+                atributo: filtroAtributo
+                }
+            })
+    return response;
+}
+
+export const crearMazo = async(nombre,ids) => {
+    const response = api.post("/mazos", {ids,nombre});
+    return response;
+}
