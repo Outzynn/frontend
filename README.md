@@ -4,3 +4,4 @@ Modificamos el endpont /estadisticas del backend para que devuelva el nombre pub
 
 Agregamos un endpont GET /mazos/{mazo} que nos lista las cartas del mazo cuyo id le pasamos por argumento. Esto se hizo para poder resolver el inciso e- Mis mazos - Ver Mazo: se muestra en un modal las cartas que lo componen.
 
+Modificamos levemente el endopoit GET /cartas para que tambien procese cuando recibe un atributo vacio (""). No solamente cuando es null.
