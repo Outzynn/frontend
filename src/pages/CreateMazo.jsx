@@ -37,11 +37,9 @@ export default function AltaMazo(){
         if (cartasSeleccionadas.length !== 5) {
             return setError("Debés seleccionar exactamente 5 cartas.");
         }
-        console.log(nombreMazo,cartasSeleccionadas);
         try {
             const response = await crearMazo(nombreMazo,cartasSeleccionadas);
             setSuccess("Mazo creado correctamente.");
-            // Opcional: redireccionar o limpiar estado
         } catch (error) {
             setError(error.response?.data?.error || "No se pudo guardar el mazo.");
         }
@@ -102,7 +100,7 @@ export default function AltaMazo(){
                 </div>
             </div>
 
-            <button className="boton-guardar"onClick={handleCrearMazo}>Guardar mazo</button>
+            <button className="boton-guardar-mazo"onClick={handleCrearMazo}>Guardar mazo</button>
             {error && <p className="errorMessage">{error}</p>}
             {success && <p className="successMessage">{success}</p>}
 
