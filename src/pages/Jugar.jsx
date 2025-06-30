@@ -48,7 +48,6 @@ export default function Jugar(){
 
                 setUserCartas(cartas_usuario);
                 setServerCartas(cartas_servidor);
-
                 setIdPartida(partida.id);
             }
 
@@ -167,7 +166,7 @@ export default function Jugar(){
 
                     {resultadoRonda.ultima_ronda && (
                         <>
-                        <strong>Ganador del juego: {resultadoRonda.gano_el_juego}</strong>
+                        <strong>Ganador del juego: {resultadoRonda.gano_el_juego === "el usuario" ? "¡Vos!" : "Servidor"}</strong>
 
                         <div className="jugar-otra-vez">
                         <button onClick={reiniciarPartida}>
