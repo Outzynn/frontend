@@ -428,7 +428,6 @@ h2 {
 }
 
 
-/* Carta individual */
 .carta {
   width: 160px;
   background-color: #f3f3f3;
@@ -463,15 +462,15 @@ h2 {
   margin-top: 6px;
 }
 
-/* Cuando una carta está seleccionada */
+
 .carta.seleccionada {
   border-color: #00bfff;
   background-color: #e6f9ff;
 }
 
 /* Botón de guardar */
-.boton-guardar {
-  display: block;
+.boton-guardar-mazo {
+  display: flex;
   margin: 0 auto;
   padding: 10px 16px;
   font-size: 16px;
