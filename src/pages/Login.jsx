@@ -25,26 +25,10 @@ export default function Login() {
     
       setTimeout(() => {
         navigate("/");
-        }, 1500);
+        }, 500);
 
     } catch (err) {
-      if (err.response) {
-        switch (err.response.status) {
-          case 400:
-            setError("Faltan datos. Completa todos los campos.");
-            break;
-          case 401:
-            setError("Credenciales incorrectas.");
-            break;
-          case 500:
-            setError("Error en el servidor. Intenta más tarde.");
-            break;
-          default:
-            setError("Error desconocido.");
-        }
-      } else {
-        setError("No se pudo conectar al servidor.");
-      }
+        setError(err.response?.data?.error);
     }
   };
 
