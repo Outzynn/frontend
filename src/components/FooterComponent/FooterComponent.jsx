@@ -12,4 +12,4 @@ export default function FooterComponent(){
             </h2>
         </footer>
     );
-}asd
+}
