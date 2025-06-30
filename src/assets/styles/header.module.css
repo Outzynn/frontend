@@ -4,14 +4,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.4rem 1rem;     /* 🔽 mucho menos padding */
+  padding: 0.4rem 1rem;   
   background-color: rgba(0, 0, 0, 0.555);
   flex-wrap: wrap;
 }
 
 .headerTitle {
   font-family: "Rubik Puddles", system-ui;
-  font-size: 2rem;        /* 🔽 antes 2.5rem */
+  font-size: 2rem;    
   font-weight: bold;
   white-space: nowrap;
   color: azure;
@@ -20,7 +20,7 @@
 .linkHeader {
   display: flex;
   align-items: center;
-  gap: 0.5rem;              /* 🔽 menos espacio entre íconos y texto */
+  gap: 0.5rem;            
   text-decoration: none;
   color: inherit;
 }
