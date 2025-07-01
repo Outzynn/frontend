@@ -35,15 +35,19 @@ export default function Mazos(){
         }
     }, [usuario]);
 
-    const handleEliminar = async(mazoId) =>  {
-        try{
+    const handleEliminar = async (mazoId) => {
+        const confirmar = window.confirm("¿Estás seguro de que querés eliminar este mazo?");
+
+        if (!confirmar) return;
+
+        try {
             await deleteMazo(mazoId);
-            setMazos((prevMazos)=> prevMazos.filter((m) => m.id !== mazoId));
-            
-            setSuccess("Mazo eliminado correctamente.")
-        }catch (error) {
+            setMazos((prevMazos) => prevMazos.filter((m) => m.id !== mazoId));
+            setSuccess("Mazo eliminado correctamente.");
+        } catch (error) {
             setError(
-                error.response?.data?.error || "No se pudo eliminar el mazo. Asegurate de que no fue usado en una partida."
+                error.response?.data?.error ||
+                "No se pudo eliminar el mazo. Asegurate de que no fue usado en una partida."
             );
         }
     };
