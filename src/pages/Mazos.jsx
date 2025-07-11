@@ -162,7 +162,7 @@ export default function Mazos(){
               <ul>
                 {cartas.map((carta, idx) => (
                   <li key={idx}>
-                    <img src={`/cartas/${carta.id}.png`} alt="Carta" className="imagen-carta"/>
+                    <img src={`/cartas/${carta.id}.webp`} alt="Carta" className="imagen-carta"/>
                     <p className="carta-info">
                     <strong>{carta.nombre} 
                     <br></br> Ataque: {carta.ataque} 

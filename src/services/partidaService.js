@@ -1,10 +1,5 @@
 import api from "../api/api";
 
-const getEnCurso = async() =>{
-        const response = await api.get('/partida-en-curso');
-        return response.data;
-}
-
 const crearPartida = async(idDelMazo) => {
     const response = await api.post('/partidas', {idDelMazo});
     return response.data;
@@ -21,7 +16,6 @@ const jugarRonda = async(carta_id, partida_id) =>{
 }
 
 export default{
-    getEnCurso,
     crearPartida,
     getCartas,
     jugarRonda

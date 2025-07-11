@@ -21,35 +21,12 @@ export default function Jugar(){
 
         const iniciarPartida = async() => {
         try {
-            const partida = await partidaService.getEnCurso();
-
-            if (partida.en_curso && !partida.pertenece) {
-                setError("La partida en curso no te pertenece.");
-                return;
-            }
-
-            if (partida.pertenece && partida.mazo_id != id) {
-                setError(`El mazo seleccionado no corresponde a la partida en curso. Mazo correcto: ${partida.mazo_id}`);
-                return;
-            }
-
-            if(!partida.en_curso){
                 const partida_creada = await partidaService.crearPartida(id);
                 const cartas_servidor = await partidaService.getCartas(1, partida_creada.partida_id);
 
                 setUserCartas(partida_creada.cartas);
                 setServerCartas(cartas_servidor);
-
                 setIdPartida(partida_creada.partida_id);
-            }
-            else{
-                const cartas_usuario = await partidaService.getCartas(usuario.id, partida.id);
-                const cartas_servidor = await partidaService.getCartas(1, partida.id);
-
-                setUserCartas(cartas_usuario);
-                setServerCartas(cartas_servidor);
-                setIdPartida(partida.id);
-            }
 
             } catch (error) {
                 const mensaje = error?.response?.data?.error || error?.message || "Error inesperado al iniciar la partida.";
@@ -69,6 +46,7 @@ export default function Jugar(){
             const response = await partidaService.jugarRonda(carta.id, idPartida);
 
             setResultadoRonda(response);
+            console.log(resultadoRonda)
             setUserCartas(prevCartas => prevCartas.filter(c => c.id !== carta.id));
 
             setServerCartas(prevCartas => {
@@ -141,21 +119,21 @@ export default function Jugar(){
                         <div className="carta">
                         <h3>Tu carta</h3>
                         <img
-                            src={`/cartas/${cartaSeleccionada.id}.png`}
+                            src={`/cartas/${cartaSeleccionada.id}.webp`}
                             alt={cartaSeleccionada.nombre}
                             onError={(e) => (e.target.src = "/cartas/default.webp")}
                         />
-                        <p>{cartaSeleccionada.nombre} - {cartaSeleccionada.ataque} ({cartaSeleccionada.ataque_nombre})</p>
+                        <p>{cartaSeleccionada.nombre} - {cartaSeleccionada.ataque} ({cartaSeleccionada.ataque_nombre}) - {cartaSeleccionada.atributo_nombre}</p>
                         </div>
 
                         <div className="carta">
                         <h3>Carta del servidor</h3>
                         <img
-                            src={`/cartas/${resultadoRonda.carta_servidor.id}.png`}
+                            src={`/cartas/${resultadoRonda.carta_servidor.id}.webp`}
                             alt={resultadoRonda.carta_servidor.nombre}
                             onError={(e) => (e.target.src = "/cartas/default.webp")}
                         />
-                        <p>{resultadoRonda.carta_servidor.nombre} - {resultadoRonda.carta_servidor.ataque} ({resultadoRonda.carta_servidor.ataque_nombre})</p>
+                        <p>{resultadoRonda.carta_servidor.nombre} - {resultadoRonda.carta_servidor.ataque} ({resultadoRonda.carta_servidor.ataque_nombre}) {resultadoRonda.carta_servidor.atributo_nombre} </p>
                         </div>
                     </div>
 
@@ -190,7 +168,7 @@ export default function Jugar(){
                 {Array.isArray(userCartas) && userCartas.map((carta) => (
                 <div key={carta.id} className="carta">
                     <img
-                    src={`/cartas/${carta.id}.png`}
+                    src={`/cartas/${carta.id}.webp`}
                     alt={carta.nombre}
                     onError={(e) => (e.target.src = "/cartas/default.webp")}
                     onDoubleClick={() => handleCartaDobleClick(carta)}

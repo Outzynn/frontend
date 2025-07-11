@@ -109,7 +109,7 @@ export default function AltaMazo(){
                     cartas.map(carta => (
                     <div key={carta.id} className={`carta ${cartasSeleccionadas.includes(carta.id) ? 'seleccionada' : ''}`}>
                         <img
-                        src={`/cartas/${carta.id}.png`}
+                        src={`/cartas/${carta.id}.webp`}
                         alt={carta.nombre}
                         onError={(e) => {
                             e.target.onerror = null; //

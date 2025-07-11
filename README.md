@@ -1,3 +1,7 @@
+Las cartas van en la carpeta public ya que si se ponen en assets no se reconocen y hay problemas, lo consulte en practica y se me indico que se haga asi para evitar problemas con react, ya que se trata de diferente manera la carpeta public del resto.
+
+Modificaciones en el backend:
+
 Modificamos el endpoint /login del backend para que no requiera un "nombre" ya que en el frontend no se proporciona. Ademas no lo vimos util que busque en la base de datos (para verificar si existe ese user) por nombre y usuario cuando ya el usuario es unico y alcanza para la verificacion.
 
 Modificamos el endpont /estadisticas del backend para que devuelva el nombre publico del usuario junto a sus stats y no el id.
@@ -13,3 +17,4 @@ Aniadimos el endpoint /partida-en-curso que devuelve informacion si hay partida 
 Modificacion en PartidaModel, ahora devuelve todos los datos de la carta.
 
 Algunas modificaciones minimas en Jugada Controller para mejor manejo de informacion.
+
