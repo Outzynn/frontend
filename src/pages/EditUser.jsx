@@ -17,18 +17,31 @@ export default function EditUser(){
     const validarDatos = () => {
         const errores = [];
 
-        if(!nameUser || nameUser.length > 30){
-            errores.push("El nombre de usuario no puede ser vacío y debe tener como máximo 30 caracteres. ")
+        if(!nameUser && !password && !confirmPassword){
+            errores.push("Ingresa los datos que desees editar.")
         }
+        else{
+            if(nameUser && nameUser.length > 30){
+                errores.push("El nombre de usuario debe tener como máximo 30 caracteres.")
+            }
 
-        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
-        if(!passwordRegex.test(password)){
-            errores.push("La password tiene que tener por lo menos 8 caracteres y que tenga mayúsculas, minúsculas, números y caracteres especiales.");
-        }
+            const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
 
-        if(password != confirmPassword){
-            errores.push("Las contraseñas no coinciden.")
+            if(password || confirmPassword)
+            {
+              if(!password){
+                errores.push("Debe ingresar la nueva contraseña.")
+              }
+              else if(!passwordRegex.test(password)){
+                errores.push("La password tiene que tener por lo menos 8 caracteres y que tenga mayúsculas, minúsculas, números y caracteres especiales.");
+              }
+
+              if(password !== confirmPassword){
+                errores.push("Las contraseñas no coinciden.")
+              }
+            }
         }
+        
 
         return errores;
     }
@@ -48,7 +61,11 @@ export default function EditUser(){
         try{
             const response = await userService.edit(usuario.id,nameUser,password);
             setSuccess(response.mensaje);
-            editName(nameUser);
+            
+            if(nameUser){
+              editName(nameUser);
+            }
+
             setTimeout(() => navigate("/"), 1000);
 
         }catch (err){
@@ -91,7 +108,6 @@ export default function EditUser(){
             value={nameUser}
             onChange={(e) => setNameUser(e.target.value)}
             className="placeholderName"
-            required
           />
           <input
             type="password"
@@ -99,7 +115,6 @@ export default function EditUser(){
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             className="placeholderPassword"
-            required
           />
           <input
             type="password"
@@ -107,7 +122,6 @@ export default function EditUser(){
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
             className="placeholderPassword"
-            required
           />
           <button type="submit" className="submitButton">
             Editar
